@@ -1,0 +1,35 @@
+@model WebAppForms.Models.PersonalInfo
+
+<h2>Шаг 1: Личная информация</h2>
+
+<form method="post">
+    <div>
+        <label for="FirstName">Имя:</label>
+        <input type="text" id="FirstName" name="FirstName" value="@Model.FirstName" />
+        <span style="color:red;">@Html.ValidationMessageFor(m => m.FirstName)</span>
+    </div>
+
+    <div>
+        <label for="LastName">Фамилия:</label>
+        <input type="text" id="LastName" name="LastName" value="@Model.LastName" />
+        <span style="color:red;">@Html.ValidationMessageFor(m => m.LastName)</span>
+    </div>
+
+    <div>
+        <label for="Email">Email:</label>
+        <input type="text" id="Email" name="Email" value="@Model.Email" />
+        <span style="color:red;">@Html.ValidationMessageFor(m => m.Email)</span>
+    </div>
+
+    <div>
+        <label for="BirthDate">Дата рождения:</label>
+        <input type="date" id="BirthDate" name="BirthDate" value="@Model.BirthDate?.ToString("yyyy-MM-dd")" />
+        <span style="color:red;">@Html.ValidationMessageFor(m => m.BirthDate)</span>
+    </div>
+
+    <button type="submit">Далее</button>
+</form>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

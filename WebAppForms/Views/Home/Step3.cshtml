@@ -1,0 +1,25 @@
+@model WebAppForms.Models.FinalModel
+
+<h2>Шаг 3: Подтверждение</h2>
+
+<div>
+    <h3>Личная информация</h3>
+    <p>Имя: @Model.PersonalInfo.FirstName</p>
+    <p>Фамилия: @Model.PersonalInfo.LastName</p>
+    <p>Email: @Model.PersonalInfo.Email</p>
+    <p>Дата рождения: @Model.PersonalInfo.BirthDate?.ToString("yyyy-MM-dd")</p>
+</div>
+
+<div>
+    <h3>Информация о работе</h3>
+    <p>Должность: @Model.JobInfo.JobTitle</p>
+    <p>Образование: @Model.JobInfo.Education</p>
+</div>
+
+<form method="post">
+    <button type="submit">Подтвердить</button>
+</form>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
