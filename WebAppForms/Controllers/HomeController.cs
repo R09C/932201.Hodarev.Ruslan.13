@@ -84,11 +84,6 @@ namespace WebAppForms.Controllers
         [HttpPost]
         public IActionResult Step3(FinalModel model)
         {
-            if (ModelState.IsValid)
-            {
-                // Логика завершения (например, сохранение данных в базе данных)
-                return RedirectToAction("Success");
-            }
             return View(model);
         }
 
